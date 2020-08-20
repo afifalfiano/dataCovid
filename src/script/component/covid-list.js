@@ -1,4 +1,4 @@
-
+import './covid-item.js';
 class CovidList extends HTMLElement{
     constructor() {
         super();
@@ -13,18 +13,27 @@ class CovidList extends HTMLElement{
     render() {
         this._shadowDom.innerHTML = 
         `
-        
+        <style>
+        .placeholder {
+            font-weight: lighter;
+            color: rgba(0,0,0,0.5);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+         }
+        </style>
         `
         this._covids.forEach(covid => {
             const covidItemElement = document.createElement("covid-item");
-            covidItemElement = covid;
+            covidItemElement.covid = covid;
             this._shadowDom.appendChild(covidItemElement);
         })
     }
 
     renderError(message) {
         this._shadowDom.innerHTML = "";
-        this._shadowDom.innerHTML += `<h2>${message}</h2>`
+        this._shadowDom.innerHTML += `<h2 class="placeholder">${message}</h2>`
     }
 }
 
