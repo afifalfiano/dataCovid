@@ -6,7 +6,6 @@
     <title>Info Covid</title>
     <link rel="stylesheet" href="style/style.css" type="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 <body>
     <header>
@@ -15,21 +14,32 @@
                 <h1 class="display-3 mb-4 text-center">Info Covid</h1>
                 
                 <!-- Search -->
-                <form class="form-inline d-flex justify-content-center">
+                <div class="form-inline d-flex justify-content-center">
                     <i class="fas fa-search" aria-hidden="true"></i>
-                    <input class="form-control mr-sm-2 w-50 active-pink" type="search" id="searchElement" placeholder="Cari Data Terdampak Covid" aria-label="Search">
+                    <input class="form-control mr-sm-2 w-50 active-pink" type="search" id="searchElement" placeholder="Search Data" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" id="searchButtonElement" type="submit">Search</button>
-                  </form>
+                </div>
                 <!-- End Search -->
     
             </div>
         </div>
     </header>
+
+    <div class="container">
+        <div id="listingTable"></div>
+    <a href="javascript:prevPage()" id="btn_prev">Prev</a>
+    <a href="javascript:nextPage()" id="btn_next">Next</a>
+    page: <span id="page"></span>
+    </div>
+    
+
     <div class="container">
         <h1 class="h4 text-center" id="lastUpdate"></h1>
         <div class="row" id="containerItem">
         </div>
     </div>
+
+    
    
     <script src="./app.js"></script>
 </body>
