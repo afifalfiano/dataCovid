@@ -36,7 +36,11 @@ class DataSource{
             return response.json();
         })
         .then(responseJson => {
-            return responseJson;
+            if(responseJson !== null || responseJson !== undefined) {
+                return Promise.resolve(responseJson);
+            } else {
+                return Promise.reject(`${keyword} is not found!`);
+            }
         })
     }
 }

@@ -22,12 +22,14 @@ class CovidItem extends HTMLElement {
         }           
         
         </style>
-
-        <div class="covid-info card mx-auto shadow-sm p-3 m-3 bg-white rounded">
-            <h2 class="card-title">${this._covid.countryRegion}</h2>
+        <div class="row">
+        <div class="covid-info col-lg-6 col-md-12 col-sm-12 card mx-auto shadow-sm p-3 m-3 bg-white rounded">
+            <h2 class="card-title">Country: ${this._covid.countryRegion}</h2>
+            <p class="card-title">Province State: ${this._covid.provinceState}</p>
             <p class="card-text bg-warning text-white p-1">Confirmed: ${this._covid.confirmed}</p>
             <p class="card-text bg-success text-white p-1">Recovered: ${this._covid.recovered}</p>
             <p class="card-text bg-danger text-white p-1">Deaths: ${this._covid.deaths}</p>
+        </div>
         </div>
         `;
 

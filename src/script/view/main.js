@@ -11,23 +11,41 @@ const main = () => {
     const lastUpdateElement = document.getElementById('lastUpdate');
 
     const onButtonSearchClicked = () => {
+        console.log(searchElement.value);
         DataSource.searchInfo(searchElement.value)
         .then(renderResult)
         .catch(fallbackResult);
     };
 
     const renderResult = results => {
-      const sliceArray = results.splice(100, 3843).sort();
-      console.log(results);
-      console.log(sliceArray);
-      covidListElement.covids = sliceArray;
+    //   const sliceArray = results.splice(50, 3843).sort();
+      covidListElement.covids = results;
+    }
+
+    const renderUpdate = results => {
+        const cutString = results.lastUpdate.substring(0, 10);
+        lastUpdateElement.textContent = 'Last Update : ' + cutString;
+    }
+
+    const lastUpdate = () => {
+        DataSource.lastUpdate()
+        .then(renderUpdate)
+        .catch(fallbackResult);
     }
 
     const fallbackResult = message => {
         covidListElement.renderError(message);
     }
 
+    lastUpdate();
+    DataSource.dataCovid().then(renderResult).catch(fallbackResult);
     searchElement.clickEvent = onButtonSearchClicked;
+
+
+
+    
+    // console.log(data);
+    
 }
 
 

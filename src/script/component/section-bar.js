@@ -15,6 +15,7 @@ class SectionBar extends HTMLElement {
     }
 
     get value() {
+        console.log(this._shadowDom.querySelector('#searchElement').value);
         return this._shadowDom.querySelector('#searchElement').value;
     }
 
