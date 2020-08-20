@@ -41,11 +41,6 @@ const main = () => {
     DataSource.dataCovid().then(renderResult).catch(fallbackResult);
     searchElement.clickEvent = onButtonSearchClicked;
 
-
-
-    
-    // console.log(data);
-    
 }
 
 
